@@ -104,10 +104,19 @@ async function fileExists(KV, filename) {
 }
 
 // 定义一个名为 base64Decode 的函数，用于将 base64 编码的字符串转换为 utf-8 编码的字符
-function base64Decode(str) {
-	const bytes = new Uint8Array(atob(str).split('').map(c => c.charCodeAt(0)));
-	const decoder = new TextDecoder('utf-8');
-	return decoder.decode(bytes);
+function base64Decode(str) {  
+    const bytes = new Uint8Array(atob(str).split('').map(c => c.charCodeAt(0)));  
+    const decoder = new TextDecoder('utf-8');  
+    let decodedString = decoder.decode(bytes);  
+  
+    // 将 \r\n 替换为换行符 \n  
+    decodedString = decodedString.replace(/\r\n/g, '\n');  
+  
+    // 如果你在 HTML 中需要换行效果，可以替换为 <br> 标签  
+    // decodedString = decodedString.replace(/\r\n/g, '<br>');  
+  
+    return decodedString;  
+
 }
 
 function 空格替换加号(str) {
