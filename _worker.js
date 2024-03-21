@@ -109,14 +109,10 @@ function base64Decode(str) {
     const decoder = new TextDecoder('utf-8');  
     let decodedString = decoder.decode(bytes);  
   
-    // 将 \r\n 替换为换行符 \n  
-    decodedString = decodedString.replace(/\r\n/g, '\n');  
-  
-    // 如果你在 HTML 中需要换行效果，可以替换为 <br> 标签  
-    // decodedString = decodedString.replace(/\r\n/g, '<br>');  
+    // 将空格替换为换行符 \n  
+    decodedString = decodedString.replace(/ /g, '\n');  
   
     return decodedString;  
-
 }
 
 function 空格替换加号(str) {
