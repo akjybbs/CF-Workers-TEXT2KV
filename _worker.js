@@ -110,7 +110,7 @@ function base64Decode(str) {
     let decodedString = decoder.decode(bytes);  
   
     // 将空格替换为换行符 \n  
-    decodedString = decodedString.replace(/ /g, '\n');  
+    decodedString = decodedString.replace(/@/g, '\n');  
   
     return decodedString;  
 }
